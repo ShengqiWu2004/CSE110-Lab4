@@ -3,6 +3,7 @@ import Budget from "../components/Budget/Budget";
 import ExpenseList from "../components/Expense/ExpenseList";
 import ExpenseTotal from "../components/Expense/ExpenseTotal";
 import Remaining from "../components/Remaining";
+import ChangeBudgetForm from "../components/Budget/ChangeBudget";
 
 export const MyBudgetTracker = () => {
   return (
@@ -29,6 +30,12 @@ export const MyBudgetTracker = () => {
       <div className="row mt-3">
         <div className="col-sm">
           <AddExpenseForm />
+        </div>
+      </div>
+      <h3 className = "mt-3">Change Budget</h3>
+      <div className="row mt-3">
+        <div className="col-sm">
+          <ChangeBudgetForm />
         </div>
       </div>
     </div>
