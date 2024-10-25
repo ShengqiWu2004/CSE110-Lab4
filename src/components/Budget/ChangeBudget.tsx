@@ -13,18 +13,18 @@ const ChangeBudgetForm = () => {
     <form onSubmit={(event) => onSubmit(event)}>
       <div className="row">
         <div className="col-sm">
-          <label htmlFor="cost">Budget</label>
+          <label htmlFor="budget">Budget</label>
           <input
             required
             type="text"
             className="form-control"
-            id="cost"
+            id="budget"
             value={newBudget}
             onChange={(e)=>(setNewBudget(e.target.value === "" ? 0 :parseFloat(e.target.value)))}
           ></input>
         </div>
         <div className="col-sm">
-          <button type="submit" className="btn btn-primary mt-3">
+          <button type="submit" className="btn btn-primary mt-3" data-testid="budget-save-button">
             Save
           </button>
         </div>
