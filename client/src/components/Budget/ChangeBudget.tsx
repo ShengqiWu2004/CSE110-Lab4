@@ -1,12 +1,19 @@
 import React, { useState, useContext} from "react";
 import { AppContext } from "../../context/AppContext";
+import { updateBudget } from "../../utils/budget-utils"
+
 const ChangeBudgetForm = () => {
   const {budget,setBudget} = useContext(AppContext);
   const [newBudget,setNewBudget] = useState<number>(budget);
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setBudget(newBudget);
+    try {
+      await updateBudget(newBudget);
+      setBudget(newBudget);
+    } catch (err: any) {
+      console.log(err.message);
+    }
   };
 
   return (

@@ -1,4 +1,4 @@
-import { getBudget, updateBudget } from "./budget-utils";
+import { getBudget, updateBudgetServer } from "./budget-utils";
 import { Request, Response } from 'express';
 
 export function createBudgetEndpoints(app: any, budget: { amount: number }) {
@@ -12,7 +12,7 @@ export function createBudgetEndpoints(app: any, budget: { amount: number }) {
     // Update the budget
     app.put("/budget", (req: Request, res: Response) => {
 
-        updateBudget(res, req.body, budget);
+        updateBudgetServer(res, req.body, budget);
 
     });
 }
