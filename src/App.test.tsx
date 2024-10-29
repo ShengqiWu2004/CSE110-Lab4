@@ -16,7 +16,8 @@ describe("Tests for TritonTrack", () => {
     const expectName = screen.getByText("Food");
     const expectCost = screen.getByText("$20");
 
-    expect(expectName).toBeInTheDocument();
+    // Change for Lab 5
+    expect(expectName).not.toBeInTheDocument();
     expect(expectCost).toBeInTheDocument();
 
     const expectRemaining = screen.getByText(/Remaining:\s*\$/);
