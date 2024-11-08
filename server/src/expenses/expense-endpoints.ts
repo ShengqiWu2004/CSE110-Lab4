@@ -1,3 +1,4 @@
+import { Database } from "sqlite";
 import { createExpenseServer, deleteExpense, getExpenses } from "./expense-utils";
 import { Request, Response } from 'express';
 
