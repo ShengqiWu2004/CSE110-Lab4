@@ -1,4 +1,3 @@
-import { Expense } from "../types";
 import { Database } from "sqlite";
 import { Request, Response } from "express";
 
