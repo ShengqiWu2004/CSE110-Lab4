@@ -23,15 +23,14 @@ export async function createExpenseServer(req: Request, res: Response, db: Datab
  
 
 export async function deleteExpense(req: Request, res: Response, db: Database) {
-    // TO DO: Implement deleteExpense function
     try{
         const { id } = req.params;
-        const exp = await db.get('SELECT * FROM expenses WHERE id = ?;',[id]);
+        const exp = await db.get('SELECT * FROM expenses WHERE id = ?;',id);
         if(!exp){
             return res.status(404).send({ error: "Expense not found" });
         }
-        await db.run('DELECT FROM expenses WHERE id = ?;',[id]);
-        res.status(204).send();
+        await db.run('DELETE FROM expenses WHERE id = ?;',id);
+        res.status(201).send();
 
     }catch(error){
         return res.status(404).send({ error: "An error occured when deleting expense" });
@@ -39,7 +38,6 @@ export async function deleteExpense(req: Request, res: Response, db: Database) {
 }
 
 export async function getExpenses(req: Request, res: Response, db: Database) {
-    db.all("SELECT * FROM expenses;", (errors: Error, rows: any[]) => {
-        res.status(200).send({ "data": rows });
-    });
+    const expenses = await db.all("SELECT * FROM expenses");
+    res.status(200).send({ "data": expenses });
 }
